@@ -1,0 +1,40 @@
+{
+  "name": "itr-osint-abogados",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0",
+    "build": "npm run pdf && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 0.0.0.0",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "pdf": "tsx scripts/generate-program.ts",
+    "test": "playwright test",
+    "audit": "node scripts/audit.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.1.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.1",
+    "motion": "^14.5.0",
+    "pdfkit": "^0.20.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/pdfkit": "^0.17.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "lighthouse": "^13.5.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}

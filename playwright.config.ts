@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'tests',workers:2,use:{baseURL:'http://127.0.0.1:4321',launchOptions:{executablePath:'/usr/bin/chromium',args:['--no-sandbox']}},webServer:{command:'npm run preview -- --port 4321 --ignore-lock',url:'http://127.0.0.1:4321',reuseExistingServer:true},reporter:[['list'],['json',{outputFile:'docs/qa-results.json'}]]});

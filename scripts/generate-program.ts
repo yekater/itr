@@ -1,0 +1,10 @@
+import PDFDocument from 'pdfkit';
+import {createWriteStream,mkdirSync} from 'node:fs';
+import {curriculum} from '../src/data/curriculum';
+import {duration,durationNote,COURSE_URL} from '../src/data/site';
+mkdirSync('public/downloads',{recursive:true});
+const doc=new PDFDocument({size:'A4',margin:50,info:{Title:'iTR+ · Programa OSINT para abogados',Author:'iTR+'}});
+const stream=createWriteStream('public/downloads/programa-osint-abogados.pdf');doc.pipe(stream);
+doc.font('Helvetica').fillColor('#0B1F3A').fontSize(28).text('iTR+');doc.moveDown(.5).fontSize(24).text('Curso OSINT para abogados');doc.fontSize(11).moveDown().text('Formación especializada en investigación digital mediante fuentes abiertas. Aprende a buscar, contrastar y documentar información pública con una metodología práctica y rigurosa.');doc.moveDown().text('100 % online · 7 módulos · 38 lecciones y evaluación final');doc.moveDown().text(duration).moveDown(.4).text(durationNote);
+for(const [i,module] of curriculum.entries()){doc.addPage();doc.fillColor('#2563A6').fontSize(10).text(`PROGRAMA / MÓDULO 0${i+1}`);doc.moveDown().fillColor('#0B1F3A').fontSize(22).text(module.title);doc.moveDown();for(const [j,lesson] of module.lessons.entries()){doc.fontSize(12).text(`${i+1}.${j+1}. ${lesson}`,{lineGap:6});doc.moveDown(.5);}}
+doc.addPage().fontSize(22).text('Evaluación final');doc.moveDown().fontSize(12).text('Test final adicional a las 38 lecciones. Tutorías, materiales descargables y cuestionarios según el programa facilitado.');doc.moveDown().text('La formación contempla un certificado final; consulta su denominación, emisor y alcance vigentes. No se presenta como titulación oficial ni garantiza admisión judicial.');doc.moveDown().text('Fuentes públicas no significa tratamiento irrestricto. Respeta la finalidad legítima, la privacidad y los límites de acceso.');doc.moveDown().text('Información completa y condiciones del curso:',{continued:false});doc.fillColor('#2563A6').text(COURSE_URL,{link:COURSE_URL,underline:true});doc.end();await new Promise<void>((resolve,reject)=>{stream.on('finish',resolve);stream.on('error',reject)});

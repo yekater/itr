@@ -1,0 +1,36 @@
+# Matriz de trazabilidad
+
+Fuente disponible: banco traducido del documento maestro. Los PDF originales no se adjuntaron; no se afirma contraste visual. Los literales completos se conservan en banco-contenido-interno.md y briefing-original.md, incluidos textos históricos. No se ha requerido traducción adicional.
+
+| Página | Fragmento / aportación | Destino y tratamiento | Estado |
+|---|---|---|---|
+| 1 | Oferta, públicos, propuesta de valor | Hero, destinatarios y aplicaciones; precios solo archivo interno | Banco facilitado; contraste externo pendiente |
+| 2 | Necesidad, beneficio, competencias y evidencias | Aplicaciones, programa, formación; COEINF pendiente | Banco facilitado; contraste externo pendiente |
+| 3 | Producto, metodología, certificado, duración | Formación y certificación; economía en archivo interno | Banco facilitado; contraste externo pendiente |
+| 4 | Cinco desarrollos temáticos | Programa: Conoce las competencias y su aplicación | Banco facilitado; contraste externo pendiente |
+| 5 | Canales de captación | docs/estrategia-captacion.md, exclusivamente interno | Banco facilitado; contraste externo pendiente |
+| 6 | Identidad verbal | Descriptor, tono y mensajes de toda la página | Banco facilitado; contraste externo pendiente |
+| 7 | Paleta corporativa | src/styles/global.css; se conserva #6f7e90 aunque el círculo parezca más claro | Banco facilitado; contraste externo pendiente |
+| 8 | Tipografía y referencias visuales | Inter, IBM Plex Sans y SVG originales; no se copian capturas | Banco facilitado; contraste externo pendiente |
+| 9 | Objetivos y públicos | Destinatarios, aplicaciones y estrategia interna | Banco facilitado; contraste externo pendiente |
+| 10 | Quince expresiones SEO | Hero, aplicaciones, aprendizaje, programa y FAQ | Banco facilitado; contraste externo pendiente |
+| 11 | Apertura general | Destinatarios secundarios y programa | Banco facilitado; contraste externo pendiente |
+| 12 | Aprendizaje y públicos secundarios | Destinatarios y competencias | Banco facilitado; contraste externo pendiente |
+| 13 | Características | Formación y programa | Banco facilitado; contraste externo pendiente |
+| 14 | Aplicación y cierre general | Aplicación profesional y cierre | Banco facilitado; contraste externo pendiente |
+| 15 | Hero y aplicaciones jurídicas | Hero actualizado y aplicaciones | Banco facilitado; contraste externo pendiente |
+| 16 | Siete áreas de aprendizaje | Programa; temario real mantenido aparte | Banco facilitado; contraste externo pendiente |
+| 17 | Características y certificación | Formación, certificado con cautelas | Banco facilitado; contraste externo pendiente |
+| 18 | Cuatro FAQ y cierre | FAQ y cierre; certificado reformulado | Banco facilitado; contraste externo pendiente |
+| 19 | Hero nuevo, cuatro aplicaciones y perfiles | Inicio → aplicaciones → destinatarios, textos prioritarios | Banco facilitado; contraste externo pendiente |
+| 20 | Siete áreas completas | Aprendizaje, sin omitir herramientas ni informes | Banco facilitado; contraste externo pendiente |
+| 21 | Características y aplicación profesional | Formación → aplicación profesional | Banco facilitado; contraste externo pendiente |
+
+## Diferencias y cambios justificados
+
+- Precio del briefing: aproximadamente 540 €, IVA incluido; ficha citada por el documento: 445,00 €, fiscalidad no confirmada. Descuentos de lanzamiento, estudiantes y desempleados no verificados. Se archivan únicamente aquí y en el briefing interno. Exclusión pública permanente.
+- 60 h estimadas = 20 teóricas + 40 prácticas; plataforma citada: 15 h 10 min. Métricas distintas, aclaradas próximas al dato y en PDF.
+- «Certificado expedido y visado por COEINF, en trámite de denominación final» y «Se expide y visará por COEINF; no equivale a título oficial»: originales no confirmados. Se publican únicamente certificado final y referencia pendiente. «Certificado para titulación de Técnico Tecnólogo» se conserva como denominación de la ficha citada, pendiente.
+- El término acreditación es parte del nombre, no título oficial.
+- Repeticiones comparten componentes. Prioridad editorial K sobre J e I en el hero y orden de perfiles.
+- Wordmark tipográfico provisional, sin sello ni escudo.

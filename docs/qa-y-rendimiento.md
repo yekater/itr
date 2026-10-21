@@ -1,0 +1,14 @@
+# Comprobaciones y rendimiento
+
+21/10/2026, Node 24.19.0, npm 11.9.0, Chromium del entorno Linux; Lighthouse 13.5.0 con perfil móvil predeterminado y throttling simulado, servido desde dist mediante Astro preview. No son datos de campo ni se ha medido INP de usuarios reales.
+
+- Instalación reproducida con npm ci y lockfile; astro check: cero errores, advertencias o indicaciones. Compilación estática y generación PDF correctas.
+- Seis pruebas Playwright aprobadas: HTML sin JS y acordeones; 7 módulos / 38 lecciones; destinos de contacto y curso; PDF válido; recorrido completo del expediente y descarga; selector y cálculo; seguimiento del cursor y retorno; cambio a movimiento reducido; WebGL desactivado; teclado; ausencia de peticiones externas y almacenamiento de marketing; SEO y orden editorial.
+- axe no encontró infracciones en el escenario móvil revisado. No equivale a certificación WCAG. Se corrigió el nombre accesible del grafo para que derive del texto visible.
+- Sin desbordamiento horizontal global a 320, 360, 390, 768, 1024, 1440 y 1920 px. Capturas completas en docs/qa-*.png; inspección visual del hero a 1440 y 390 px y de una página renderizada del PDF. Viewport de poca altura 1024×500 incluido en el recorrido de teclado.
+- PDF: texto seleccionable comprobado con pdftotext, 38 entradas reales, sin importes; página de módulo renderizada con pdftoppm. Licencias de fuentes locales incluidas.
+- Lighthouse guardado en lighthouse.json: rendimiento 96, accesibilidad 100, buenas prácticas 100, SEO 66. FCP 2,0 s; LCP 2,4 s; bloqueo total 0 ms; CLS 0,007. SEO penaliza noindex deliberado en preview. No se quitó para mejorar la puntuación. Primera medición: rendimiento 100; variación de laboratorio esperable.
+- Tamaños gzip en resource-sizes.json: React cliente ~65,8 kB; Motion/hero ~45,9 kB; núcleo React ~3,2 kB; script página ~1,2 kB. Total crítico conservador con decoración diferida ~117 kB, inferior al objetivo 120 kB. Escena/Three diferida ~129,6 kB, inferior a 200 kB. La advertencia de chunk >500 kB sin comprimir corresponde a Three diferido, no al render estático.
+- Hero inicial SVG local, sin raster pesado ni consultas de imágenes externas; social.png real de 1200×630. DPR máximo 1,5. Render WebGL por demanda, pausa fuera de vista y limpieza de recursos. El fallback sigue al puntero sin WebGL. No hay movimiento automático continuo.
+
+Límites: no se ejecutaron Safari ni Firefox, auditoría manual completa de lector de pantalla, medición de campo, validación de Odoo receptor, publicación DNS/HTTPS ni pruebas en dispositivos físicos. Las fuentes externas devolvieron 403; no se afirma su revisión. Se mantiene pendiente el dominio y la información legal/comercial descrita en fuentes-y-verificaciones.md. Los ficheros QA e información estratégica no se distribuyen en dist.

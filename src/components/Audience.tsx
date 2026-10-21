@@ -1,0 +1,3 @@
+import {useState} from 'react';
+import {specialties} from '../data/site';
+export default function Audience(){const [selected,setSelected]=useState(0);return <><div className="audience-grid">{specialties.map(([title,description],i)=><button className="specialty" key={title} aria-pressed={selected===i} onClick={()=>setSelected(i)}><span className="number">0{i+1}</span><h3>{title}</h3><p>{description}</p><span aria-hidden="true"><svg className="arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>)}</div><div className="example" aria-live="polite"><span className="eyebrow">UN EJEMPLO EN TU ESPECIALIDAD</span><p>{specialties[selected][2]}</p><small>Ejemplo didáctico, no asesoramiento sobre un caso real.</small></div></>}
