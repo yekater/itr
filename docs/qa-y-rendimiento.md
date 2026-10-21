@@ -20,3 +20,9 @@ Límites: no se ejecutaron Safari ni Firefox, auditoría manual completa de lect
 Comprobación de fuentes renderizadas en Chromium mediante CSS.getPlatformFontsForNode: H1 → IBM Plex Sans Medium; cuerpo → Inter; CTA → Inter Medium; referencias en code → Inter. PDF comprobado con pdffonts: únicamente IBM Plex Sans e Inter, incrustadas; se eliminó Helvetica. Imagen social regenerada con las dos fuentes locales. Se mantienen los seis tokens corporativos.
 
 Compilación y tipos pasan; ocho escenarios Playwright aprobados, incluidos axe y capturas responsive, red sin texto, fuentes, pausa y HTML autónomo regenerado. Las cifras Lighthouse anteriores corresponden a la versión previa; no se presentan como una nueva medición de este hero.
+
+## Actualización: secuencia de investigación
+
+La ilustración de red se sustituye por una animación de 16 segundos: tres fuentes transmiten partículas al nodo de contraste; después aparece una hoja, se dibujan sus líneas y se muestra una marca final. Los rótulos Recopilando información, Contrastando relaciones, Preparando expediente y Expediente preparado están fuera del SVG. Se mantiene pausa, respuesta al cursor y suspensión fuera de vista o en pestaña oculta. Sin JS, en móvil y con movimiento reducido se muestra el resultado final estático. La leyenda indica demostración visual; no se hace una investigación real.
+
+Nueve pruebas Playwright aprobadas, incluyendo la comprobación de los cuatro estados en tiempos concretos de la animación, desplazamiento de paquetes, trazado del documento y resultado estático. Se guardan capturas hero-01-recopilar.png, hero-02-contrastar.png, hero-03-documentar.png y hero-04-expediente.png. Compilación y tipos sin errores; el HTML autónomo se regenera y se comprueba con pausa y expediente interactivo. Se inspeccionan visualmente etapas inicial/final y variante móvil. Las métricas Lighthouse anteriores siguen siendo históricas, no una medición de esta secuencia.

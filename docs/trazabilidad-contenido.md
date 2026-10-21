@@ -38,3 +38,7 @@ Fuente disponible: banco traducido del documento maestro. Los PDF originales no 
 ## Revisión visual solicitada por la cliente
 
 Se conservan Inter e IBM Plex Sans y la paleta exacta. Por instrucción posterior, la carpeta ilustrada del hero se sustituye por connecting dots: partículas y líneas sin textos incrustados. No se modifica el contenido comercial de la página. Helvetica se elimina del PDF y la imagen social se regenera con las tipografías corporativas.
+
+## Revisión: de las fuentes al expediente
+
+Por petición posterior de la cliente, la red abstracta del hero se sustituye por una secuencia ilustrativa: recopilación de información → contraste de relaciones → preparación del expediente → documento preparado. Son fuentes y documentos gráficos simulados, sin consultas reales ni una promesa de admisibilidad. Se conservan tipografías, paleta, textos y destinos comerciales. Los rótulos de fase son HTML adaptativo; el SVG no contiene texto.
