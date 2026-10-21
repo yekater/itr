@@ -34,3 +34,7 @@ Fuente disponible: banco traducido del documento maestro. Los PDF originales no 
 - El término acreditación es parte del nombre, no título oficial.
 - Repeticiones comparten componentes. Prioridad editorial K sobre J e I en el hero y orden de perfiles.
 - Wordmark tipográfico provisional, sin sello ni escudo.
+
+## Revisión visual solicitada por la cliente
+
+Se conservan Inter e IBM Plex Sans y la paleta exacta. Por instrucción posterior, la carpeta ilustrada del hero se sustituye por connecting dots: partículas y líneas sin textos incrustados. No se modifica el contenido comercial de la página. Helvetica se elimina del PDF y la imagen social se regenera con las tipografías corporativas.

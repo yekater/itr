@@ -11,3 +11,9 @@ Node 24, npm. En este entorno: `npm ci --cache /workspace/.npm-cache`. Después:
 Datos en src/data; enlaces Odoo en src/lib/links.ts. Analítica desactivada, sin formulario local ni cookies de marketing. Precio y estrategia solo en docs, que nunca debe desplegarse. Preview noindex por defecto; copia .env.example y configura dominio real antes de producción. dist es el único directorio publicable.
 
 Consulta docs/trazabilidad-contenido.md, docs/fuentes-y-verificaciones.md, docs/medicion-y-odoo.md y docs/despliegue.md. Faltan dominio final, identidad/documentos legales y confirmación de condiciones comerciales señaladas; no impiden desarrollo ni preview, pero sí una publicación definitiva responsable. No se ha publicado ni modificado Odoo.
+
+## Vista HTML sin instalación
+
+Descarga `preview/iTR-preview.html` desde GitHub con «Download raw file» y ábrelo en el navegador. Incluye estilos, Inter, IBM Plex Sans, PDF e interacciones. Se regenera con `npm run export:html`; el exportador escribe dentro del repositorio y no necesita rutas propias del entorno en nube.
+
+Hero actualizado: red SVG de puntos y conexiones sin textos incrustados, respuesta al puntero y movimiento ambiente con pausa. En pantallas compactas, puntero grueso, ahorro de datos o movimiento reducido, la red permanece estática. Al salir de vista o al ocultarse la pestaña, la animación se pausa. Las dos fuentes corporativas también se usan en el PDF y en la imagen social.

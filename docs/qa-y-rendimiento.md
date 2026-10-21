@@ -9,6 +9,14 @@
 - PDF: texto seleccionable comprobado con pdftotext, 38 entradas reales, sin importes; página de módulo renderizada con pdftoppm. Licencias de fuentes locales incluidas.
 - Lighthouse guardado en lighthouse.json: rendimiento 96, accesibilidad 100, buenas prácticas 100, SEO 66. FCP 2,0 s; LCP 2,4 s; bloqueo total 0 ms; CLS 0,007. SEO penaliza noindex deliberado en preview. No se quitó para mejorar la puntuación. Primera medición: rendimiento 100; variación de laboratorio esperable.
 - Tamaños gzip en resource-sizes.json: React cliente ~65,8 kB; Motion/hero ~45,9 kB; núcleo React ~3,2 kB; script página ~1,2 kB. Total crítico conservador con decoración diferida ~117 kB, inferior al objetivo 120 kB. Escena/Three diferida ~129,6 kB, inferior a 200 kB. La advertencia de chunk >500 kB sin comprimir corresponde a Three diferido, no al render estático.
-- Hero inicial SVG local, sin raster pesado ni consultas de imágenes externas; social.png real de 1200×630. DPR máximo 1,5. Render WebGL por demanda, pausa fuera de vista y limpieza de recursos. El fallback sigue al puntero sin WebGL. No hay movimiento automático continuo.
+- Hero inicial SVG local, sin raster pesado ni consultas de imágenes externas; social.png real de 1200×630. DPR máximo 1,5. Render WebGL por demanda, pausa fuera de vista y limpieza de recursos. El fallback sigue al puntero sin WebGL. La versión medida no tenía movimiento automático continuo; la actualización de red descrita abajo incorpora movimiento con pausa.
 
 Límites: no se ejecutaron Safari ni Firefox, auditoría manual completa de lector de pantalla, medición de campo, validación de Odoo receptor, publicación DNS/HTTPS ni pruebas en dispositivos físicos. Las fuentes externas devolvieron 403; no se afirma su revisión. Se mantiene pendiente el dominio y la información legal/comercial descrita en fuentes-y-verificaciones.md. Los ficheros QA e información estratégica no se distribuyen en dist.
+
+## Actualización del hero y tipografías
+
+21/10/2026: la ilustración con carpeta y rótulos se sustituye por 64 puntos y sus conexiones SVG. No contiene texto que pueda sobresalir. Incluye señales en las líneas, movimiento lento, respuesta al cursor y botón de pausa. Las animaciones se detienen fuera de vista y en pestañas ocultas; se desactivan en pantallas compactas, puntero grueso, ahorro de datos y movimiento reducido.
+
+Comprobación de fuentes renderizadas en Chromium mediante CSS.getPlatformFontsForNode: H1 → IBM Plex Sans Medium; cuerpo → Inter; CTA → Inter Medium; referencias en code → Inter. PDF comprobado con pdffonts: únicamente IBM Plex Sans e Inter, incrustadas; se eliminó Helvetica. Imagen social regenerada con las dos fuentes locales. Se mantienen los seis tokens corporativos.
+
+Compilación y tipos pasan; ocho escenarios Playwright aprobados, incluidos axe y capturas responsive, red sin texto, fuentes, pausa y HTML autónomo regenerado. Las cifras Lighthouse anteriores corresponden a la versión previa; no se presentan como una nueva medición de este hero.
