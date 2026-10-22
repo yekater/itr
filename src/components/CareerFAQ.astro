@@ -1,0 +1,11 @@
+---
+import {careerFaq} from '../data/career';
+---
+{careerFaq.map(item => <details class="faq-item career-faq" id={item.id}>
+  <summary>{item.question}<span aria-hidden="true">+</span></summary>
+  <div class="faq-answer">
+    {item.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+    {item.examples.length > 0 && <dl class="career-examples">{item.examples.map(example => <><dt>{example.label}</dt><dd>{example.text}</dd></>)}</dl>}
+    {item.skills.length > 0 && <><h3>Aptitudes y palabras clave que puedes añadir si las has trabajado</h3><ul class="career-skills">{item.skills.map(skill => <li>{skill}</li>)}</ul><p>Utiliza solo competencias que puedas demostrar; no añadas herramientas o experiencia que no tengas.</p></>}
+  </div>
+</details>)}

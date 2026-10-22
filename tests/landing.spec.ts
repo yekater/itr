@@ -76,3 +76,36 @@ test('la información se recopila, se contrasta y forma el expediente',async({pa
  await expect(page.locator('.investigation-phase-3')).toHaveCSS('opacity','1');
  await expect(page.locator('.investigation-phase-0')).toHaveCSS('opacity','0');
 });
+test('formato autónomo, foro y acceso permanente sin JavaScript',async({browser})=>{
+ const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const page=await context.newPage();await page.goto('/');
+ const open=async(question:string)=>{const detail=page.locator('#preguntas details').filter({has:page.locator('summary').filter({hasText:question})});await detail.locator('summary').click();return detail;};
+ const learning=await open('¿Cómo se desarrolla la formación?');await expect(learning).toContainText('Cada módulo incluye un PDF');await expect(learning).toContainText('enlaces a vídeos');await expect(learning).toContainText('creador y al mentor');
+ const work=await open('¿Es compatible con trabajar a jornada completa?');await expect(work).toContainText('sin horarios de clase obligatorios ni plazo de finalización');
+ const access=await open('¿Me quedaré con los materiales después de terminar?');await expect(access).toContainText('para siempre');await expect(access).toContainText('usuario y contraseña');
+ await page.locator('#cv-osint summary').click();await expect(page.locator('#cv-osint')).toContainText('Formación complementaria');await expect(page.locator('#cv-osint')).toContainText('en curso');
+ await page.locator('#linkedin-osint summary').click();await expect(page.locator('#linkedin-osint')).toContainText('Licencias y certificaciones');await expect(page.locator('#linkedin-osint')).toContainText('Abogado/a | Litigación civil y mercantil');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+ await page.locator('#linkedin-osint').screenshot({path:'docs/qa-linkedin-mobile.png',style:'.header,.mobile-cta,.skip{visibility:hidden!important}'});
+ await context.close();
+});
+test('estadísticas delimitadas y fuentes primarias, sin promesa de colocación',async({page})=>{
+ await page.goto('/');await page.locator('#estadisticas-empleo summary').click();
+ const panel=page.locator('#estadisticas-empleo');await expect(panel).toContainText('21 %');await expect(panel).toContainText('14.100');await expect(panel).toContainText('34.932');await expect(panel).toContainText('Estados Unidos');await expect(panel).toContainText('Reino Unido');await expect(panel).toContainText('2025–2035');await expect(panel).toContainText('no son un contador de ofertas disponibles');
+ const links=panel.locator('.employment-metric a');await expect(links).toHaveCount(3);for(const link of await links.all()){expect(['www.bls.gov','www.gov.uk']).toContain(new URL((await link.getAttribute('href'))!).hostname);}
+ await page.locator('#certificado-empleo summary').click();await expect(page.locator('#certificado-empleo')).toContainText('no una evaluación del certificado de iTR+');await expect(page.locator('#certificado-empleo a')).toHaveCount(2);
+ await expect(page.locator('#preguntas')).not.toContainText('90 %');
+ await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+ const results=await new AxeBuilder({page}).include('#preguntas').analyze();expect(results.violations).toEqual([]);
+ await panel.screenshot({path:'docs/qa-estadisticas-mobile.png',style:'.header,.mobile-cta,.skip{visibility:hidden!important}'});
+});
+test('PDF actualizado y descarga idéntica dentro del HTML autónomo',async({page,request})=>{
+ const {execFileSync}=await import('node:child_process');
+ const text=execFileSync('pdftotext',['-layout','public/downloads/programa-osint-abogados.pdf','-'],{encoding:'utf8'});const normalized=text.replace(/\s+/g,' ');
+ expect(text.match(/^\s*[1-7]\.[1-9]\.\s/gm)).toHaveLength(38);
+ for(const phrase of ['estudio autónomo','Cada módulo incluye un PDF','enlaces a vídeos','al creador y al mentor','No hay una fecha límite','para siempre','usuario y contraseña'])expect(normalized).toContain(phrase);
+ expect(normalized).not.toMatch(/€|\b(?:540|445)\b|sesiones virtuales/);
+ const asset=await request.get('/downloads/programa-osint-abogados.pdf');expect(asset.ok()).toBeTruthy();expect(await asset.body()).toEqual(readFileSync('public/downloads/programa-osint-abogados.pdf'));
+ await page.setContent(readFileSync('preview/iTR-preview.html','utf8'),{waitUntil:'domcontentloaded'});
+ const href=await page.locator('a[download][href^="data:application/pdf"]').first().getAttribute('href');expect(Buffer.from(href!.split(',')[1],'base64')).toEqual(await asset.body());
+ await page.locator('#estadisticas-empleo summary').click();await expect(page.locator('#estadisticas-empleo')).toContainText('34.932');
+});

@@ -42,3 +42,9 @@ Se conservan Inter e IBM Plex Sans y la paleta exacta. Por instrucción posterio
 ## Revisión: de las fuentes al expediente
 
 Por petición posterior de la cliente, la red abstracta del hero se sustituye por una secuencia ilustrativa: recopilación de información → contraste de relaciones → preparación del expediente → documento preparado. Son fuentes y documentos gráficos simulados, sin consultas reales ni una promesa de admisibilidad. Se conservan tipografías, paleta, textos y destinos comerciales. Los rótulos de fase son HTML adaptativo; el SVG no contiene texto.
+
+## Actualización de modalidad, acceso y orientación profesional · 22/10/2026
+
+Fuente: instrucciones expresas de la cliente en este chat. Sustituyen las descripciones anteriores sobre sesiones virtuales, tutorías y modalidades pendientes cuando resulten incompatibles. La formación es autónoma; cada módulo tiene un PDF con enlaces a vídeos y recursos; el alumno consulta al creador y al mentor en un foro. No hay límite de finalización; se conserva el acceso permanente a los materiales en iTR+ mediante login, también después del curso. Estas condiciones se publican en Formación, FAQ y PDF a partir de src/data/course-format.ts. La modificación describe la oferta; no crea el foro ni modifica la plataforma Odoo.
+
+Se añaden FAQ sobre jornada completa, acceso posterior, CV, LinkedIn, aptitudes, empleo y estadísticas de contexto. Las cifras internacionales incluyen fuente, territorio, periodo y limitaciones; no se convierten en tasas de contratación o ascenso de iTR+. Ver docs/empleabilidad-y-fuentes.md.

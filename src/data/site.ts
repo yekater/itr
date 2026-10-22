@@ -1,3 +1,4 @@
+import {courseFormat} from './course-format';
 export const CORPORATE_URL = 'https://perinfor.odoo.com/itr-principal';
 export const COURSE_URL = 'https://perinfor.odoo.com/slides/acreditacion-tecnico-especialista-en-analisis-forense-en-la-web-10';
 export const duration = 'Carga formativa estimada de 60 horas, según el programa facilitado, incluyendo práctica: 20 teóricas y 40 prácticas.';
@@ -26,10 +27,14 @@ export const learning = [
 ] as const;
 export const faq = [
  ['¿Necesito conocimientos previos?','No. El curso parte de un nivel básico y sube a prácticas avanzadas.'],
- ['¿Cuál es la duración efectiva?', duration+' '+durationNote],
+ ['¿Cuál es la duración efectiva?', duration+' '+durationNote+' Esta carga es orientativa, no un plazo de finalización. '+courseFormat.pace],
  ['¿La certificación es oficial?','No se presenta como título oficial. La referencia a COEINF y las condiciones del certificado están pendientes de confirmación; consulta la información vigente en iTR+.'],
  ['¿Cómo aplicar lo aprendido?','Plantillas y formatos para integrar hallazgos en informes jurídicos. La obtención y aportación de cada evidencia exige valorar sus límites legales y técnicos.'],
- ['¿Qué incluye la formación?','Teoría, tutorías, revisión de casos prácticos, cuestionarios, materiales descargables, soporte técnico y evaluación final. Modalidad 100 % online con sesiones virtuales prácticas, según el programa facilitado. Consulta la planificación vigente en la ficha del curso.'],
+ ['¿Cómo se desarrolla la formación?',courseFormat.mode+' '+courseFormat.materials+' Estudias los siete módulos, trabajas las actividades y realizas los cuestionarios y la evaluación final. '+courseFormat.support],
+ ['¿Qué incluye la formación?',courseFormat.materials+' Incluye actividades, cuestionarios, evaluación final, soporte técnico y el foro de consulta. La formación contempla un certificado final en las condiciones indicadas.'],
+ ['¿Puedo preguntar al creador y al mentor del curso?','Sí. '+courseFormat.support+' El estudio autónomo no significa estudiar sin un lugar donde resolver dudas: puedes utilizar el foro para consultar los contenidos y las actividades.'],
+ ['¿Es compatible con trabajar a jornada completa?',courseFormat.work],
+ ['¿Me quedaré con los materiales después de terminar?','Sí. '+courseFormat.access+' Puedes volver a consultar los PDF, los enlaces a vídeos y los recursos del curso cuando los necesites.'],
  ['¿Para quién es este curso de investigación digital para abogados?','Principalmente para abogados y pasantes de despachos pequeños y medianos. También resulta de interés para estudiantes, investigadores privados habilitados, consultores antifraude, profesionales digitales y peritos informáticos. No confiere habilitación profesional adicional.'],
  ['¿Dónde consulto las condiciones y el acceso?','La ficha de iTR+ recoge la información completa y las condiciones vigentes. El acceso a la plataforma y la matrícula pueden requerir identificación y pasos adicionales.']
 ] as const;

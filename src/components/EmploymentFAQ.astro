@@ -1,0 +1,25 @@
+---
+import {employmentEvidence as evidence} from '../data/employment-evidence';
+---
+<details class="faq-item career-faq" id="estadisticas-empleo">
+  <summary>¿Qué cifras recientes hay sobre la demanda y qué significan para este curso?<span aria-hidden="true">+</span></summary>
+  <div class="faq-answer">
+    <p>Estos datos sirven como contexto internacional del mercado de ciberseguridad. No miden el empleo de abogados con OSINT en España ni los resultados del curso iTR+.</p>
+    <div class="employment-evidence">{evidence.metrics.map(metric => <article class="employment-metric">
+      <h3><span>{metric.figure}</span> {metric.title}</h3>
+      <p class="employment-scope">{metric.scope}</p>
+      <p>{metric.explanation}</p>
+      <a href={metric.url}>Fuente: {metric.source}</a>
+    </article>)}</div>
+    <p>Fuentes consultadas el {evidence.checkedAt}. Las proyecciones y los anuncios publicados en un periodo no son un contador de ofertas disponibles en este momento.</p>
+    <p>No disponemos de una cifra verificada que aísle las vacantes de abogados con OSINT en España ni de una tasa de contratación o ascenso de alumnos de este curso. Por eso no extrapolamos estos datos a una promesa de empleo.</p>
+  </div>
+</details>
+<details class="faq-item career-faq" id="certificado-empleo">
+  <summary>¿Qué aporta el certificado en un proceso de selección?<span aria-hidden="true">+</span></summary>
+  <div class="faq-answer">
+    <p>El BLS señala que, en puestos de analista de seguridad de la información, los empleadores pueden preferir candidatos con una certificación profesional. El informe británico también describe la formación especializada y las certificaciones como vías para demostrar competencias. Son observaciones generales del sector, no una evaluación del certificado de iTR+.</p>
+    <p>En tu CV y LinkedIn, utiliza el certificado para explicar qué has estudiado y acompáñalo de competencias y ejemplos que puedas demostrar. La selección depende también de tu experiencia, tu perfil jurídico y los requisitos de cada puesto. No se ha acreditado un porcentaje de contratación, promoción o aumento salarial atribuible a este curso.</p>
+    <ul class="employment-sources"><li><a href={evidence.blsUrl}>BLS: requisitos y certificación profesional para analistas de seguridad</a></li><li><a href={evidence.ukUrl}>Gobierno británico / DSIT 2026: formación y certificaciones, apartado 5.3</a></li></ul>
+  </div>
+</details>

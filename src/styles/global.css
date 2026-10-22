@@ -57,3 +57,20 @@
 @media(max-width:800px){.hero-investigation{padding-top:18px;border-top:1px solid #324a65}.investigation-scene{max-height:360px}.investigation-phase{font-size:17px}}
 @media(max-width:500px){.investigation-heading{font-size:8px}.investigation-heading .pill{font-size:8px}.investigation-footer p{font-size:8px}.investigation-caption,.investigation-progress,.investigation-footer{margin-inline:0}.investigation-phase .phase-status{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.hero-investigation *{animation:none!important}.animation-toggle{display:none}}
+.course-access-note{border:1px solid #507DA8;border-radius:8px;padding:25px 28px;margin:0 0 32px;max-width:900px}
+.course-access-note h3{font-size:23px}
+.course-access-note p{font-size:13px;color:#c5d6e6}
+.faq-answer{padding-bottom:22px;overflow-wrap:anywhere}
+.faq-item .faq-answer p{padding:0;font-size:13px}
+.faq-answer h3{font-size:16px;line-height:1.4;letter-spacing:-.01em;margin:22px 0 12px}
+.career-examples{border-left:2px solid #b8ccde;padding-left:18px;margin:22px 0;font-size:13px;line-height:1.7}
+.career-examples dt{font-weight:500;margin-bottom:6px}
+.career-examples dd{margin:0 0 18px;color:#485d72}
+.career-skills{font-size:13px;color:#485d72;list-style:disc;padding-left:20px;margin-bottom:20px}
+@media(max-width:500px){.course-access-note{padding:22px 20px}}
+.employment-metric{border-top:1px solid #d8e1e9;padding:18px 0;margin:4px 0 18px}
+.employment-metric h3{font-size:16px;margin-top:0}
+.employment-metric h3>span{font-size:29px;color:#163A63;display:block;margin-bottom:8px;letter-spacing:-.035em}
+.faq-item .employment-scope{font-size:11px;color:#163A63}
+.employment-metric a,.employment-sources a{font-size:12px;overflow-wrap:anywhere;line-height:1.7}
+.employment-sources{list-style:disc;font-size:12px;padding-left:20px}
